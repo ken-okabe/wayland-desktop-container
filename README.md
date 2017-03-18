@@ -10,11 +10,11 @@ This tutorial walks you through setting up Wayland Desktop Environment with linu
 ## Features and benefits
 
 ✓ Hardware independent container OS by the hardware abstraction with extremely efficient, minimal performance overhead method by systemd-nspawn container technology  
-✓ 100% portable among systemd enabled linux hosts, easy backup and Recovery  
+✓ 100% portable among systemd enabled linux hosts, easy backup and recovery  
 ✓ Direct rendering works such as 3D Desktop effects  
 ✓ Video and Sound works  
 ✓ Network works out of the box  
-✓ Infrequent reboot operations for the host OS and the hardware, very fast container virtual boot, poweroff, reboot
+✓ Les likely to mess up the hostOS and infrequent reboot operations for the hostOS and the hardware, instead, enjoy the instant virtual boot, poweroff and reboot of the containerOS.
 
 ## Summary of How to
 
@@ -151,7 +151,7 @@ but the situation can be different for 3D games, and significantly different on 
 ## (Optional) legacy X11/Xorg
  Althogh this tutorial focuses on wayland nested window, [Xephyr](https://wiki.archlinux.org/index.php/Xephyr) (a nested X server that runs as an X application) has been around for a long time.
 
-Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Window manager is not bundled, so if you run KWin or other direct rendering composer on top of `Xepher`, things is going slow and inefficient, therefore, not recommended, but here's how:
+Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Window manager is not bundled, so if you run KWin or other direct rendering composer on top of `Xepher`, things are going slow and inefficient, therefore, not recommended, but here's how:
 
 ```bash
 Xephyr -ac -screen 1200x700 -resizeable -reset :1 &;
