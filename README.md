@@ -24,7 +24,7 @@ that is nested on your current desktop environment.
 2. Boot your container OS with `systemd-nspawn`
 
 3. From the containerOS console:  
-(a) Launch a Desktop Environment such as `XFCE` or `LXQT` on the targted `kwin_wayland` window.  
+(a) Launch a Desktop Environment such as [XFCE](https://wiki.archlinux.org/index.php/xfce) or [LXQt](https://wiki.archlinux.org/index.php/LXQt) to the targeted `kwin_wayland` window.  
 (b) Simply prepare your favorite launcher app like [synapse](https://launchpad.net/synapse-project) or [xfce4-panel](http://packages.ubuntu.com/xenial/xfce4-panel) alone for a minimal setup.
 
 # Walk through
@@ -103,7 +103,7 @@ Remember, **you do not need to instal X11/Xorg display server, or wayland for co
 
 Remember, KWin is already running, and it's a feature complete and powerful WindowManager. You can launch and switch tasks with KWin via shortcut-keys, or prepare your favorite launcher app like `synapse` or `xfce4-panel` for a minimal setup.
 
-However, if we need more user friendly Desktop Environments, just install and launch XFCE or LXQT that can run along with KWin.
+However, if we need more user friendly Desktop Environments, just install and launch `XFCE` or `LXQt` that can run along with `KWin`.
 
 From the containerOS console:
 
