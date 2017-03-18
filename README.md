@@ -122,7 +122,7 @@ startxfce4;
 
 ### Maximize and remove the frame of the kwin_wayland window as default
 
-![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022156.png)
+![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022127.png)
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022156.png)
 
 Probably, you want to remove the frame of the containerOS, this is how to on Plasma (DE of the HostOS).
