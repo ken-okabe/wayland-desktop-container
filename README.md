@@ -50,7 +50,7 @@ Some distro such as Arch already has `systemd-nspawn`, but others such as Ubuntu
 #### kwin-wayland
 [Binary package “kwin-wayland” in ubuntu xenial](https://launchpad.net/ubuntu/xenial/+package/kwin-wayland)
 
-Arch probably has `kwin_wayland` in `wayland` package (I forgot...)
+Arch probably has `kwin_wayland` in `xorg-server-xwayland` package.
 
 ### Launch kwin_wayland window
 
@@ -121,10 +121,29 @@ startxfce4;
 
 Probably, you want to remove the frame of the containerOS, this is how to on Plasma.
 
+
+## Final result
+
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_025052.png)
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_090100.png)
 
- 
+Confirm XFCE environment recognizes that running on XWAYLAND display.
+
+[XWayland](https://wiki.archlinux.org/index.php/Wayland#XWayland) implements a compatibility layer to seamlessly run legacy X11 applications on Wayland.
+
+So far, more like exceptionally, if you install [GUI libraries of wayland](https://wiki.archlinux.org/index.php/wayland#GUI_libraries), with a certain flag, you can see the GUI applications run natively on wayland.
+
+![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_093932.png)
+
+The left is `kate` window with Xorg/X11 compatiblity mode.  
+The right is the window with wayland native mode.
+
+As you can see the native wayland app does not reflect the current window theme and the XFCE panel does not show the app task, and you cannot tell the difference of the performance as long as you use the normal applications of PC.
+
+So, probably there's not much reason to pursuit wayland native mode app.
+but the situation can be different for 3D games, and significantly different on small devices such as Raspberry Pi.
+
+
 ### What you may remove from the container OS
 
 - linux kernels with various drivers
@@ -134,7 +153,7 @@ Probably, you want to remove the frame of the containerOS, this is how to on Pla
 ### HostOS and ContainerOS interaction
 
 You cannot Copy&Paste between HostOS and ContainerOS.  
-You may consider to use ``
+You may consider to use [GoogleKeep](https://play.google.com/store/apps/details?id=com.google.android.keep&hl=en) to share contents between HostOS and ContainerOS, and of course, you shold have shared directories via systemd-nspawn bind.
 
 
 ### (Optional) legacy X11/Xorg
