@@ -97,7 +97,7 @@ Login the containerOS console.
 
 Remember, **you do not need to instal X11/Xorg display server, or wayland for containerOS** since `kwin_wayland` window plays the role.
 
-## Launch a DesktopEnvironment (XFCE)  to the targted `kwin_wayland` window.  
+## Launch a DesktopEnvironment (XFCE)  to the targeted `kwin_wayland` window.  
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_064335.png)
 
