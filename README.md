@@ -24,7 +24,8 @@ that is nested on your current desktop environment.
 
 2. Boot your container OS with `systemd-nspawn`
 
-3. (a) Launch a Desktop Environment such as `XFCE` or `LXQT` on the targted `kwin_wayland` window.  (b) Simply prepare your favorite launcher app like `synaps` or `xfce4-panel` for a minimal setup.
+3. (a) Launch a Desktop Environment such as `XFCE` or `LXQT` on the targted `kwin_wayland` window.  
+(b) Simply prepare your favorite launcher app like [synapse](https://launchpad.net/synapse-project) or [xfce4-panel](http://packages.ubuntu.com/xenial/xfce4-panel) alone for a minimal setup.
 
 ## Walk through
 
@@ -159,7 +160,7 @@ You may consider to use [GoogleKeep](https://play.google.com/store/apps/details?
 ### (Optional) legacy X11/Xorg
  Althogh this tutorial focuses on wayland nested window, [Xephyr](https://wiki.archlinux.org/index.php/Xephyr) (a nested X server that runs as an X application) has been around for a long time.
 
-Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Windwo manager is not bundled, so if you run KWin or other direct rendering composer top on `Xepher`, things is going slow and inefficient, therefore, not recommended.
+Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Window manager is not bundled, so if you run KWin or other direct rendering composer on top of `Xepher`, things is going slow and inefficient, therefore, not recommended.
 
 ```bash
 Xephyr -ac -screen 1200x700 -resizeable -reset :1 &;
