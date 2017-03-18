@@ -1,7 +1,7 @@
 # How to set up your nested Wayland Desktop Environment with systemd-nspawn container, like VirtualBox
 
 
-This tutorial walks you through setting up Wayland Desktop Environment with linux systemd-nspawn container on your computer. This is similar to VMware Workstation or VirtualBox, but linux only with minimal overhead performance.
+This tutorial walks you through setting up [Wayland](https://wiki.archlinux.org/index.php/wayland) Desktop Environment with linux [systemd-nspawn](https://wiki.archlinux.org/index.php/Systemd-nspawn) container on your computer. This is similar to VMware Workstation or VirtualBox, but linux only with minimal overhead performance.
 
 ## A Quick Look at the final result
 
@@ -39,7 +39,7 @@ Alghough, Wayland hostOS is obviously preferable, the situation is still immatur
 
 Probably, if you use GNOME for the host environment, go for Wayland, but if Plasma or other DE, be conservative to use X11/Xorg for stability.
 
-This method works very well on both conditions, and personally, I use Arch-linux with KDE-Plasma(X11/Xorg).
+This method works very well on both conditions, and personally, I use [Arch Linux](https://wiki.archlinux.org/index.php/Arch_Linux) with [KDE-Plasma(X11/Xorg)](https://wiki.archlinux.org/index.php/KDE).
 
 ## Install `systemd-nspawn` and `kwin_wayland`
 
