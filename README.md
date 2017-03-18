@@ -1,5 +1,4 @@
-# wayland-desktop-container
-### How to set up your nested Wayland Desktop Environment with systemd-nspawn container, like VirtualBox
+# How to set up your nested Wayland Desktop Environment with systemd-nspawn container, like VirtualBox
 
 
 This tutorial walks you through setting up Wayland Desktop Environment with linux systemd-nspawn container on your computer. This is similar to VMware Workstation or VirtualBox, but linux only with minimal overhead performance.
@@ -28,9 +27,9 @@ that is nested on your current desktop environment.
 (a) Launch a Desktop Environment such as `XFCE` or `LXQT` on the targted `kwin_wayland` window.  
 (b) Simply prepare your favorite launcher app like [synapse](https://launchpad.net/synapse-project) or [xfce4-panel](http://packages.ubuntu.com/xenial/xfce4-panel) alone for a minimal setup.
 
-## Walk through
+# Walk through
 
-### HostOS with minimal applications
+## HostOS with minimal applications
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_020953.png)
 
@@ -42,7 +41,7 @@ Probably, if you use GNOME for the host environment, go for Wayland, but if Plas
 
 This method works very well on both conditions, and personally, I use Arch-linux with KDE-Plasma(X11/Xorg).
 
-### Install `systemd-nspawn` and `kwin_wayland`
+## Install `systemd-nspawn` and `kwin_wayland`
 
 Some distro such as Arch already has `systemd-nspawn`, but others such as Ubuntu does not.
 
@@ -54,7 +53,7 @@ Some distro such as Arch already has `systemd-nspawn`, but others such as Ubuntu
 
 Arch probably has `kwin_wayland` in `xorg-server-xwayland` package.
 
-### Launch kwin_wayland window
+## Launch kwin_wayland window
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_021150.png)
 
@@ -73,7 +72,7 @@ kwin_wayland --xwayland &;
 
 
 
-### Boot your containerOS
+## Boot your containerOS
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_064041.png)
 
@@ -98,7 +97,7 @@ Login the containerOS console.
 
 Remember, **you do not need to instal X11/Xorg display server, or wayland for containerOS** since `kwin_wayland` window plays the role.
 
-### Launch a DesktopEnvironment (XFCE)  to the targted `kwin_wayland` window.  
+## Launch a DesktopEnvironment (XFCE)  to the targted `kwin_wayland` window.  
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_064335.png)
 
@@ -120,7 +119,7 @@ startxfce4;
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_064448.png)
 
 
-### Maximize and remove the frame of the kwin_wayland window as default
+## Maximize and remove the frame of the kwin_wayland window as default
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022127.png)
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022156.png)
@@ -149,24 +148,75 @@ As you can see the native wayland app does not reflect the current window theme 
 So, probably there's not much reason to pursuit wayland native mode app.
 but the situation can be different for 3D games, and significantly different on small devices such as Raspberry Pi.
 
-
-### What you may remove from the container OS
-
-- linux kernels with various drivers
-- /etc/fstab
-- NetworkManager.service
-
-### HostOS and ContainerOS interaction
-
-You cannot Copy&Paste between HostOS and ContainerOS.  
-You may consider to use [GoogleKeep](https://play.google.com/store/apps/details?id=com.google.android.keep&hl=en) to share contents between HostOS and ContainerOS, and of course, you shold have shared directories via systemd-nspawn bind.
-
-
-### (Optional) legacy X11/Xorg
+## (Optional) legacy X11/Xorg
  Althogh this tutorial focuses on wayland nested window, [Xephyr](https://wiki.archlinux.org/index.php/Xephyr) (a nested X server that runs as an X application) has been around for a long time.
 
-Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Window manager is not bundled, so if you run KWin or other direct rendering composer on top of `Xepher`, things is going slow and inefficient, therefore, not recommended.
+Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Window manager is not bundled, so if you run KWin or other direct rendering composer on top of `Xepher`, things is going slow and inefficient, therefore, not recommended, but here's how:
 
 ```bash
 Xephyr -ac -screen 1200x700 -resizeable -reset :1 &;
 ```        
+
+## HostOS and ContainerOS interaction
+
+You cannot Copy&Paste between HostOS and ContainerOS.  
+You may consider to use [GoogleKeep](https://play.google.com/store/apps/details?id=com.google.android.keep&hl=en) to share contents between HostOS and ContainerOS, and of course, you shold have shared directories via systemd-nspawn bind.
+
+## Portability
+
+You may "backup/recover" or "copy" or "move" the continerOS to anywhere regardless of
+
+- Kernel updates
+- Hardware drivers
+- Disk partitions (`/etc/fstab` etc.)
+- GRUB/UEFI configurations
+
+or any other typical integration glitches!
+
+Just be aware of the host kernel versions.
+
+## Backup
+
+between directories of the internal drive
+```bash
+sudo cp -axr ~/machines/arch1/ ~/machines-backup/
+```
+
+to an external USB drive (8G minimum)
+```bash
+sudo cp -axr ~/machines/arch1/ /usbmount/
+```
+
+## Recovery
+
+between directories of the internal drive
+```bash
+sudo rm ~/machines/arch1/
+sudo cp -axr ~/machines-backup/arch1/ ~/machines/
+```
+
+from an external USB drive
+```bash
+sudo rm ~/machines/arch1/
+sudo cp -axr /usbmount/arch1/ ~/machines/
+```
+
+## Backup Tools
+
+Of couse, `cp -axr` commands above may be not the smartest method, however, it's a proven robust method without any extra tool installations, and nowadays SSD and USB3.1 is very fast. Sometimes simple is best.
+
+However, you may select various backup tools for more efficiency.
+
+[Synchronization and backup programs @ArchWIKI](https://wiki.archlinux.org/index.php/Synchronization_and_backup_programs)
+
+Git base [bup](https://github.com/bup/bup) looks good and new.
+
+## What you may consider to remove from the container OS
+
+Any hardeware dependent factors such as:
+
+- linux kernels with various drivers
+- `/etc/fstab`
+- `NetworkManager.service` of `systemd`
+
+### MIT License
