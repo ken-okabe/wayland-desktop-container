@@ -24,7 +24,8 @@ that is nested on your current desktop environment.
 
 2. Boot your container OS with `systemd-nspawn`
 
-3. (a) Launch a Desktop Environment such as `XFCE` or `LXQT` on the targted `kwin_wayland` window.  
+3. From the containerOS console:  
+(a) Launch a Desktop Environment such as `XFCE` or `LXQT` on the targted `kwin_wayland` window.  
 (b) Simply prepare your favorite launcher app like [synapse](https://launchpad.net/synapse-project) or [xfce4-panel](http://packages.ubuntu.com/xenial/xfce4-panel) alone for a minimal setup.
 
 ## Walk through
@@ -91,17 +92,21 @@ sudo systemd-nspawn \
 
 Bind `/YOUR_DATA_DIRECTORY` of the hostOS to the containerOS, so that you can share the data directory between both, at the same time, your containerOS can stay as small and clean as possible and good for portability and backup/restore.
 
-##### typically, you build your container distro OS from minimal/server OS images.
+Login the containerOS console.
+
+##### Typically, you build your container distro OS from minimal/server OS images.
 
 Remember, **you do not need to instal X11/Xorg display server, or wayland for containerOS** since `kwin_wayland` window plays the role.
 
-### Launch a DesktopEnvironment (XFCE)  on the targted `kwin_wayland` window.  
+### Launch a DesktopEnvironment (XFCE)  to the targted `kwin_wayland` window.  
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_064335.png)
 
-Remember, KWin is already running, and it's a feature complete and powerful WindowManager. You can launch and switch tasks with KWin via shortcut-keys, or prepare your favorite launcher app like `synaps` or `xfce4-panel` for a minimal setup.
+Remember, KWin is already running, and it's a feature complete and powerful WindowManager. You can launch and switch tasks with KWin via shortcut-keys, or prepare your favorite launcher app like `synapse` or `xfce4-panel` for a minimal setup.
 
 However, if we need more user friendly Desktop Environments, just install and launch XFCE or LXQT that can run along with KWin.
+
+From the containerOS console:
 
 ```bash
 export DISPLAY=:1; \
@@ -120,7 +125,7 @@ startxfce4;
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022156.png)
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_022156.png)
 
-Probably, you want to remove the frame of the containerOS, this is how to on Plasma.
+Probably, you want to remove the frame of the containerOS, this is how to on Plasma (DE of the HostOS).
 
 
 ## Final result
