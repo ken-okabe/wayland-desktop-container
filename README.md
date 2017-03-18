@@ -2,7 +2,7 @@
 ### How to set up your nested Wayland Desktop Environment with systemd-nspawn container, like VirtualBox
 
 
-This tutorial walks you through setting up Wayland Desktop Environment with linux systemd-nspawn container on your computer. This is similar to VMware Workstation or VirtualBox, but linux only, minimal overhead.
+This tutorial walks you through setting up Wayland Desktop Environment with linux systemd-nspawn container on your computer. This is similar to VMware Workstation or VirtualBox, but linux only with minimal overhead performance.
 
 ## A Quick Look at the final result
 
@@ -11,7 +11,7 @@ This tutorial walks you through setting up Wayland Desktop Environment with linu
 ## Features and benefits
 
 ✓ Hardware independent container OS by the hardware abstraction with extremely efficient, minimal performance overhead method by systemd-nspawn container technology  
-✓ 100% portable among systemd enabled linux hosts, easy backup and Recovery
+✓ 100% portable among systemd enabled linux hosts, easy backup and Recovery  
 ✓ Direct rendering works such as 3D Desktop effects  
 ✓ Video and Sound works  
 ✓ Network works out of the box  
@@ -57,7 +57,7 @@ Arch probably has `kwin_wayland` in `wayland` package (I forgot...)
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_021150.png)
 
 `KWin` is known as one of the most feature complete and most stable window managers.
-This is a direct rendering enabled window powered by `KWin`, and nested on your current desktop environment.
+This is a direct rendering enabled `wayland` window space managed by `KWin`, and nested on your current desktop environment.
 
 > [Starting a nested KWin](https://community.kde.org/KWin/Wayland#Starting_a_nested_KWin) @KWin/Wayland -  KDE Community Wiki  
 Since 5.3 it is possible to start a nested KWin instance under either X11 or Wayland:
@@ -121,11 +121,10 @@ startxfce4;
 
 Probably, you want to remove the frame of the containerOS, this is how to on Plasma.
 
-
-
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_025052.png)
+![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_090100.png)
 
-
+ 
 ### What you may remove from the container OS
 
 - linux kernels with various drivers
