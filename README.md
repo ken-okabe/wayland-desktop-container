@@ -89,9 +89,9 @@ sudo systemd-nspawn \
 --bind=/YOUR_DATA_DIRECTORY
 ```
 
-Bind `/YOUR_DATA_DIRECTORY` of the hostOS to the containerOS, so that you can share the data directory between both, at the same time, your containerOS can stay small and clean as possible and good for portability and backup/restore.
+Bind `/YOUR_DATA_DIRECTORY` of the hostOS to the containerOS, so that you can share the data directory between both, at the same time, your containerOS can stay as small and clean as possible and good for portability and backup/restore.
 
-##### typically, you build your container destro from minimal/server OS images.
+##### typically, you build your container distro OS from minimal/server OS images.
 
 Remember, **you do not need to instal X11/Xorg display server, or wayland for containerOS** since `kwin_wayland` window plays the role.
 
