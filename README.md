@@ -9,12 +9,12 @@ This tutorial walks you through setting up Wayland Desktop Environment with linu
 
 ## Features and benefits
 
-✓ Hardware independent container OS by the hardware abstraction with extremely efficient, minimal performance overhead method by systemd-nspawn container technology  
+✓ Hardware independent containerOS by the hardware abstraction with extremely efficient, minimal performance overhead method by systemd-nspawn container technology  
 ✓ 100% portable among systemd enabled linux hosts, easy backup and recovery  
 ✓ Direct rendering works such as 3D Desktop effects  
 ✓ Video and Sound works  
 ✓ Network works out of the box  
-✓ Les likely to mess up the hostOS and infrequent reboot operations for the hostOS and the hardware, instead, enjoy the instant virtual boot, poweroff and reboot of the containerOS.
+✓ Less likely to mess up the hostOS and infrequent reboot operations for the hostOS and the hardware, instead, enjoy the instant virtual boot, poweroff and reboot of the containerOS.
 
 ## Summary of How to
 
