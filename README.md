@@ -80,7 +80,7 @@ kwin_wayland --xwayland &;
 sudo systemd-nspawn \
 -bD /YOUR_MACHINE_ROOT_DIRECTORY \
 --volatile=no \
---bind-ro=/YOUR_HOME/.Xauthority:/root/.Xauthority \
+--bind-ro=/home/YOUR_USERNAME/.Xauthority:/root/.Xauthority \
 --bind=/run/user/1000 \
 --bind=/tmp/.X11-unix \
 --bind=/dev/shm \
@@ -109,11 +109,11 @@ From the containerOS console:
 
 ```bash
 export DISPLAY=:1; \
-export XAUTHORITY=~/.Xauthority; \
+export XAUTHORITY=/home/YOUR_USERNAME/.Xauthority; \
 export XDG_RUNTIME_DIR=/run/user/1000; \
 export CLUTTER_BACKEND=x11; \
 export QT_X11_NO_MITSHM=1; \
-startxfce4;
+startxfce4 --disable-wm-check;
 ```
 
 ![](https://raw.githubusercontent.com/wiki/kenokabe/wayland-desktop-container/images/Screenshot_20170318_064448.png)
