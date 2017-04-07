@@ -176,33 +176,25 @@ Just be aware of the host kernel versions.
 
 ## Backup
 
-between directories of the internal drive
-```bash
-sudo cp -axr ~/machines/arch1/ ~/machines-backup/
-```
+your machines directory `./machines`  
+your machines backup directory `./machines-bak`  
+your machine image directory `arch1`
 
-to an external USB drive (8G minimum)
 ```bash
-sudo cp -axr ~/machines/arch1/ /usbmount/
+cd ~/machines/
+sudo tar -cpf ~/machines-bak/arch1.tar arch1 --totals
 ```
 
 ## Recovery
 
-between directories of the internal drive
 ```bash
-sudo rm ~/machines/arch1/
-sudo cp -axr ~/machines-backup/arch1/ ~/machines/
-```
-
-from an external USB drive
-```bash
-sudo rm ~/machines/arch1/
-sudo cp -axr /usbmount/arch1/ ~/machines/
+cd ~/machines/
+sudo tar -xpf ~/machines-bak/arch1.tar --totals
 ```
 
 ## Backup Tools
 
-Of couse, `cp -axr` commands above may be not the smartest method, however, it's a proven robust method without any extra tool installations, and nowadays SSD and USB3.1 is very fast. Sometimes simple is best.
+The `tar` commands above may be not the smartest method, however, it's a proven robust method without any extra tool installations. Often,  simple is best.
 
 However, you may select various backup tools for more efficiency.
 
@@ -218,4 +210,4 @@ Any hardeware dependent factors such as:
 - `/etc/fstab`
 - `NetworkManager.service` of `systemd`
 
-### MIT License
+## MIT License
