@@ -35,15 +35,14 @@ that is nested on your current desktop environment.
 
 The hostOS can be any linuxOS with systemd and the desktop environment can be either Wayland or legacy X11.
 
-Alghough, Wayland hostOS is obviously preferable, the situation is still immature. As of March 2017, only Fedora 25 sports Wayland-based GNOME session as the default over the X11-based one, but the other distros does not. The latest version of KDE-Plasma is stable with X11/Xorg, but unstable with Wayland.
+Although, Wayland hostOS is obviously preferable, the situation is still immature. As of March 2017, only Fedora 25 sports Wayland-based GNOME session as the default over the X11-based one, but the other distros does not. KDE Plasma runs fine with most, while not all GPUs, especially NVidia is struggeling here. The distribution KaOS offers a simple way in the login screen, to choose a stable Wayland session. 
 
-Probably, if you use GNOME for the host environment, go for Wayland, but if Plasma or other DE, be conservative to use X11/Xorg for stability.
 
 This method works very well on both conditions, and personally, I use [Arch Linux](https://wiki.archlinux.org/index.php/Arch_Linux) with [KDE-Plasma(X11/Xorg)](https://wiki.archlinux.org/index.php/KDE).
 
 ## Install `systemd-nspawn` and `kwin_wayland`
 
-Some distro such as Arch already has `systemd-nspawn`, but others such as Ubuntu does not.
+Some distro such as Arch already have `systemd-nspawn`, but others such as Ubuntu does not.
 
 #### systemd-nspawn
 [Binary package “systemd-container” in ubuntu xenial](https://launchpad.net/ubuntu/xenial/+package/systemd-container)
@@ -148,7 +147,7 @@ So, probably there's not much reason to pursuit wayland native mode app.
 but the situation can be different for 3D games, and significantly different on small devices such as Raspberry Pi.
 
 ## (Optional) legacy X11/Xorg
- Althogh this tutorial focuses on wayland nested window, [Xephyr](https://wiki.archlinux.org/index.php/Xephyr) (a nested X server that runs as an X application) has been around for a long time.
+ Although this tutorial focuses on wayland nested window, [Xephyr](https://wiki.archlinux.org/index.php/Xephyr) (a nested X server that runs as an X application) has been around for a long time.
 
 Unlike `kwin_wayland`, `Xepher` is not optimized for direct rendering and KWin Window manager is not bundled, so if you run KWin or other direct rendering composer on top of `Xepher`, things are going slow and inefficient, therefore, not recommended, but here's how:
 
